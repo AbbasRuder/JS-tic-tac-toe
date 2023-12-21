@@ -28,11 +28,13 @@ body {
     width: var(--cell-size);
     height: var(--cell-size);
     border: 1px solid rgb(69, 61, 61);
+    cursor: pointer;
     /* -to display the marks(O and X) */
     display: flex;
     justify-content: center;
     align-items: center;
     position: relative;
+
 }
 
 /* removing the edge borders */
@@ -57,42 +59,74 @@ body {
     border-bottom: none
 }
 
-/* cross mark*/
+/* 'not allowed' cursor on cells with marks */
+
+.cell.cross,
+.cell.circle {
+    cursor: not-allowed;
+}
+
+/* cross mark. (also cross mark of gray color on 'hover' of cells that don't have any markings) */
 
 .cell.cross::before,
 .cell.cross::after {
+    background-color: black;
+}
+
+.board.cross .cell:not(.cross):not(.circle):hover::before,
+.board.cross .cell:not(.cross):not(.circle):hover::after {
+    background-color: lightgrey;
+}
+
+.cell.cross::before,
+.cell.cross::after,
+.board.cross .cell:not(.cross):not(.circle):hover::before,
+.board.cross .cell:not(.cross):not(.circle):hover::after {
     position: absolute;
     content: '';
     width: calc(var(--mark-size) * .15);
     height: var(--mark-size);
-    background-color: black;
 }
 
-.cell.cross::after {
-    rotate: 45deg;
-}
-
-.cell.cross::before {
+.cell.cross::before,
+.board.cross .cell:not(.cross):not(.circle):hover::before {
     rotate: -45deg;
 }
 
-/* circle mark */
+.cell.cross::after,
+.board.cross .cell:not(.cross):not(.circle):hover::after {
+    rotate: 45deg;
+}
+
+
+/* circle mark  (also circle mark of gray color on 'hover' of cells that don't have any markings)*/
+
+.cell.circle::before {
+    background-color: black;
+}
+
+.board.circle .cell:not(.cross):not(.circle):hover::before {
+    background-color: lightgray;
+}
 
 .cell.circle::before,
-.cell.circle::after {
+.cell.circle::after,
+.board.circle .cell:not(.cross):not(.circle):hover::before,
+.board.circle .cell:not(.cross):not(.circle):hover::after {
     position: absolute;
     content: '';
     border-radius: 50%;
 }
 
-.cell.circle::before {
+.cell.circle::before,
+.board.circle .cell:not(.cross):not(.circle):hover::before {
     /* ---big black circle */
     width: var(--mark-size);
     height: var(--mark-size);
-    background-color: black;
 }
 
-.cell.circle::after {
+.cell.circle::after,
+.board.circle .cell:not(.cross):not(.circle):hover::after {
     /* ---small white circle */
     width: calc(var(--mark-size) * .7);
     height: calc(var(--mark-size) * .7);
