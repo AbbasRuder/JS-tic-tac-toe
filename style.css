@@ -21,6 +21,7 @@ body {
     align-content: center;
     justify-items: center;
     align-items: center;
+    /* -same as- grid-template-columns: auto auto auto */
     grid-template-columns: repeat(3, auto);
 }
 
@@ -131,4 +132,39 @@ body {
     width: calc(var(--mark-size) * .7);
     height: calc(var(--mark-size) * .7);
     background-color:white;
+}
+
+/* the winning message and restart button */
+
+.winning-message {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, .9);
+    color: white;
+    font-size: 5rem;
+}
+
+.winning-message button {
+    font-size: 2rem;
+    background-color: white;
+    border: 1px solid black;
+    padding: .25em .5em;
+    cursor: pointer
+}
+
+.winning-message button:hover {
+    background-color: black;
+    color: white;
+    border: 1px solid white;
+}
+
+.winning-message.show {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
 }
