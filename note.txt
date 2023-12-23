@@ -1,0 +1,30 @@
+//CSS
+
+--mark--
+mark(cross or circle) on the the cell element('cell') will show that mark on that cell.
+
+--hover--
+mark(O or X) on the the parent element('board') will show that mark on hover of every cell.
+
+--result message & restart btn--
+default is 'display:none'. Can be changed to 'display:flex' by adding a `show` class on the parent div ('winning-message')
+
+
+
+//JS
+
+1. Add `click` eventListener to all the cells and add 'once' option to make them fire only once.
+
+2. In handleClick, add the class of mark (cross'X' or circle'O' based on whose turn it is) to the clicked cell.
+
+	if there's a winner, show the winner page with the winner's mark(X or O)
+
+	if draw, show that match is draw
+
+	Else change the turn and call hover fn (adds the current-mark class on the 'board' element(the parent to the 'cell') to show the mark on hover.)
+
+3. On restart, all the added class and the event on cell should be removed
+
+
+
+
