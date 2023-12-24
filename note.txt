@@ -1,10 +1,10 @@
 //CSS
 
 --mark--
-mark(cross or circle) on the the cell element('cell') will show that mark on that cell.
+cross or circle class on the the cell elements('cell') will show that mark on that cell.
 
 --hover--
-mark(O or X) on the the parent element('board') will show that mark on hover of every cell.
+cross or circle class on the the parent element('board') will show that mark on hover of every cell.
 
 --result message & restart btn--
 default is 'display:none'. Can be changed to 'display:flex' by adding a `show` class on the parent div ('winning-message')
